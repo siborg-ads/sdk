@@ -1,0 +1,32 @@
+{
+    "name": "@siborg-ads/sdk",
+    "type": "module",
+    "module": "./dist/index.mjs",
+    "main": "dist/index.js",
+    "types": "./dist/index.d.ts",
+    "version": "0.0.1",
+    "files": [
+        "dist/*.js",
+        "dist/*.d.ts"
+    ],
+    "scripts": {
+        "publish-patch": "git add -A && npm version patch --force && npm publish --access public",
+        "publish-minor": "git add -A && npm version minor --force && npm publish --access public",
+        "publish-major": "git add -A && npm version major --force &&  npm publish --access public",
+        "build": "bun build --target=node ./src/index.ts --outfile=dist/index.js && bun run build:declaration",
+        "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+        "postbuild": "rimraf tsconfig.types.tsbuildinfo"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "prettier": "^3.0.3",
+        "rimraf": "^5.0.5"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/siborg-ads/sdk.git"
+    }
+}

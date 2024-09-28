@@ -30,6 +30,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/siborg-ads/sdk.git"
+        "url": "git+https://github.com/siborg-ads/sdk.git"
     }
 }
